@@ -37,13 +37,15 @@ import torch
 #                    77: 'cell phone', 78: 'microwave', 79: 'oven', 80: 'toaster', 81: 'sink',
 #                    82: 'refrigerator', 84: 'book', 85: 'clock', 86: 'vase', 87: 'scissors',
 #                    88: 'teddy bear', 89: 'hair drier', 90: 'toothbrush'}
-coco_id_idx_map=[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 13, 14, 
-                15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 
-                27, 28, 31, 32, 33, 34, 35, 36, 37, 38, 39, 
-                40, 41, 42, 43, 44, 46, 47, 48, 49, 50, 51, 
-                52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 
-                63, 64, 65, 67, 70, 72, 73, 74, 75, 76, 77, 
-                78, 79, 80, 81, 82, 84, 85, 86, 87, 88, 89, 90]
+# coco_id_idx_map=[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 13, 14, 
+#                 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 
+#                 27, 28, 31, 32, 33, 34, 35, 36, 37, 38, 39, 
+#                 40, 41, 42, 43, 44, 46, 47, 48, 49, 50, 51, 
+#                 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 
+#                 63, 64, 65, 67, 70, 72, 73, 74, 75, 76, 77, 
+#                 78, 79, 80, 81, 82, 84, 85, 86, 87, 88, 89, 90]
+
+coco_id_idx_map=[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
 
 from pycocotools.cocoeval import COCOeval
 
@@ -118,11 +120,13 @@ class CocoDataset(Dataset):
                     self.dataset
                 )
             )
+#           return os.path.join('/kaggle/input/doclaynet','COCO','train.json')
 
     def _get_image_path(self, file_name):
-        images_dir = os.path.join(self.root, 'images')
-        dataset = 'test2017' if 'test' in self.dataset else self.dataset
-        return os.path.join(images_dir, dataset, file_name)
+#         images_dir = os.path.join(self.root, 'images')
+#         dataset = 'test2017' if 'test' in self.dataset else self.dataset
+# #         return os.path.join(images_dir, dataset, file_name)
+          return os.path.join('/kaggle/input/doclaynet','PNG')
 
     def image_aspect_ratio(self, image_index):
         image = self.coco.loadImgs(self.ids[image_index])[0]
@@ -191,7 +195,8 @@ class CocoDataset(Dataset):
         return fmt_str
 
 if __name__ == '__main__':
-    dataset = CocoDataset('datasets/coco', 'train2017')
+#     dataset = CocoDataset('datasets/coco', 'train2017')
+    dataset = CocoDataset('/kaggle/input', 'PNG')
     print(dataset)
     print(dataset[0][0].shape)
     print(dataset[0][1])
