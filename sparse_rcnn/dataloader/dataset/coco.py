@@ -104,29 +104,29 @@ class CocoDataset(Dataset):
     def _get_anno_file_name(self):
         # example: root/annotations/person_keypoints_tran2017.json
         # image_info_test-dev2017.json
-        if 'test' in self.dataset:
-            return os.path.join(
-                self.root,
-                'annotations',
-                'image_info_{}.json'.format(
-                    self.dataset
-                )
-            )
-        else:
-            return os.path.join(
-                self.root,
-                'annotations',
-                'instances_{}.json'.format(
-                    self.dataset
-                )
-            )
-#           return os.path.join('/kaggle/input/doclaynet','COCO','train.json')
+#         if 'test' in self.dataset:
+#             return os.path.join(
+#                 self.root,
+#                 'annotations',
+#                 'image_info_{}.json'.format(
+#                     self.dataset
+#                 )
+#             )
+#         else:
+#             return os.path.join(
+#                 self.root,
+#                 'annotations',
+#                 'instances_{}.json'.format(
+#                     self.dataset
+#                 )
+#             )
+          return os.path.join('/kaggle/input/doclaynet','COCO','train.json')
 
     def _get_image_path(self, file_name):
 #         images_dir = os.path.join(self.root, 'images')
 #         dataset = 'test2017' if 'test' in self.dataset else self.dataset
 # #         return os.path.join(images_dir, dataset, file_name)
-          return os.path.join('/kaggle/input/doclaynet','PNG')
+          return os.path.join('/kaggle/input/doclaynet','PNG'.file_name)
 
     def image_aspect_ratio(self, image_index):
         image = self.coco.loadImgs(self.ids[image_index])[0]
