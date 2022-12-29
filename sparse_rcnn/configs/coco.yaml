@@ -1,5 +1,5 @@
 DATASET: CocoDataset
-BASE_ROOT : "/home/lazurite/clone/Sparse_rcnn/datasets/coco"
+BASE_ROOT : "/kaggle/input/doclaynet"
 INPUT:
   FORMAT: "RGB"
   MAX_SIZE_TEST : 1333
