@@ -277,7 +277,7 @@ def main():
     criterion = SparseRcnnLoss(cfg)
     optimizer = build_optimizer(cfg, model)
     lr_scheduler = build_lr_scheduler(cfg, optimizer)
-    evaluator = COCOEvaluator(cfg.BASE_ROOT, 'coco_2017_val', logger)
+    evaluator = COCOEvaluator(cfg.BASE_ROOT, 'doclaynet_val', logger)
 
     start_epoch, cur_it = load_checkpoint(model, optimizer, ckpt_dir, logger)
 
