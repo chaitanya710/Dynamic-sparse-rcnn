@@ -11,5 +11,5 @@ NORMALIZATION:
   PIXEL_MEAN: [123.675, 116.280, 103.530]
   PIXEL_STD: [58.395, 57.120, 57.375]
 DATASETS:
-  TRAIN: ["coco_2017_train",]
-  TEST:  ["coco_2017_val",]
+  TRAIN: ["doclaynet_train",]
+  TEST:  ["doclaynet_val",]
