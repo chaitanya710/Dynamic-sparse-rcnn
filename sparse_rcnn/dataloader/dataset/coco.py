@@ -126,7 +126,7 @@ class CocoDataset(Dataset):
 #         images_dir = os.path.join(self.root, 'images')
 #         dataset = 'test2017' if 'test' in self.dataset else self.dataset
 # #         return os.path.join(images_dir, dataset, file_name)
-          return os.path.join('/kaggle/input/doclaynet','PNG'.file_name)
+          return os.path.join('/kaggle/input/doclaynet','PNG',file_name)
 
     def image_aspect_ratio(self, image_index):
         image = self.coco.loadImgs(self.ids[image_index])[0]
