@@ -60,7 +60,7 @@ def train_model(model, criterion, optimizer, evaluator, train_loader, train_samp
     with tqdm.trange(start_epoch, total_epochs, desc="epochs", ncols=120) as ebar:
         for cur_epoch in ebar:
             if train_sampler is not None:
-                train_sampler.set_epoch(cur_epoch)
+#                 train_sampler.set_epoch(cur_epoch)
             train_one_epoch(model, criterion, optimizer, train_loader, scheduler, cur_epoch, device, logger, args, cfg,
                             ebar, scaler)
             if cfg.LOCAL_RANK == 0:
